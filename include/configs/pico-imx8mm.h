@@ -106,6 +106,7 @@
 	"loadfdt=fatload mmc ${mmcdev}:${mmcpart} ${fdt_addr} ${fdt_file}\0" \
 	"mmcboot=echo Booting from mmc ...; " \
 		"run mmcargs; " \
+		"if env info -d; then saveenv; fi;" \
 		"if test ${boot_fit} = yes || test ${boot_fit} = try; then " \
 			"bootm ${loadaddr}; " \
 		"else " \
